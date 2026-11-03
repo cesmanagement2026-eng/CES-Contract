@@ -7,7 +7,7 @@ window.CES_CONFIG = Object.freeze({
   siteMasterSheet: 'Master',
   spreadsheetId: '1pxYgcOLrFxbILLeHddvpitnhzqJdgXBsxWZgZWsd8EU',
   spreadsheetUrl: 'https://docs.google.com/spreadsheets/d/1pxYgcOLrFxbILLeHddvpitnhzqJdgXBsxWZgZWsd8EU/edit?usp=sharing',
-  webAppUrl: 'https://script.google.com/macros/s/AKfycbyHOa-tG4_-s--Kk-mnjyziIxvDIb8A2uuCJaTCJBdr-rfPFiZK4TQ1DXUsWVyn5XpbwA/exec',
+  webAppUrl: 'https://script.google.com/macros/s/AKfycbyeDwg_DkqjTZ1LF7IcH0LHqcBax8V8O2-MPSUJD8tbbIw6NK_eb3uAuIIHuAPX1AD61g/exec',
   githubOrigin: 'https://cesmanagement2026-eng.github.io',
   githubSite: 'https://cesmanagement2026-eng.github.io/CES-Contract/',
   contractDriveUrl: 'https://drive.google.com/drive/folders/1CLP-nfurl70-SfSWnQzwt21Q9ZumvGy3?usp=sharing',
