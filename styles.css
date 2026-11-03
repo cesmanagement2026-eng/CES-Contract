@@ -335,3 +335,34 @@ body{font-size:12px;line-height:1.52;letter-spacing:0}input,select,button,textar
 .card{border-radius:14px;box-shadow:0 3px 12px rgba(45,72,112,.045)}
 .card h3,.chart-title{letter-spacing:-.015em}.card small,caption{font-size:10.5px}
 @media(max-width:720px){.login-card{padding:28px 23px}.page-head{padding:16px}.page-view{padding:0 15px 24px}}
+
+/* CES Contract: consistent, compact, accessible interface */
+:root{--ink:#13253c;--muted:#62758e;--blue:#123c75;--blue-2:#165ab3;--blue-3:#edf4ff;--bg:#f4f7fc;--line:#dee7f1;--radius:14px;--shadow:0 9px 26px rgba(23,49,87,.055)}
+html,body{font-size:12px;line-height:1.52;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-size:12px}
+button{transition:background-color .16s,border-color .16s,transform .16s}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #1b64ca;outline-offset:2px}
+.card{border-radius:14px;box-shadow:0 7px 25px rgba(21,49,82,.035)}
+.page-head{padding:23px 23px 12px}.page-head h1{font-size:23px;letter-spacing:-.03em}.page-head p{font-size:11.5px}
+.page-view{padding:0 23px 30px}.filter-shell{box-shadow:none}
+.card-head h3{font-size:13px}.card-head p,.card-head small{font-size:10.5px}
+.kpi b{font-variant-numeric:tabular-nums}.status,.badge{font-size:10px}
+.nav-btn{height:44px;border-radius:10px;font-size:11.5px}.sidebar{box-shadow:0 2px 18px rgba(22,46,80,.025)}
+.topbar{height:68px}.field label{font-size:10.5px;letter-spacing:.01em}.field input,.field select{min-height:37px}
+.table-scroll{scrollbar-color:#c4d3e7 transparent}table{font-variant-numeric:tabular-nums}thead th{background:#eff4fa;color:#435b7b;font-size:10px;white-space:nowrap}tbody td{font-size:11px;line-height:1.45;padding-top:9px;padding-bottom:9px}
+.chart-wrap,.chart-wrap.tall{min-width:0}.chart-scope,.chart-caption{font-size:10px;color:#64758e}
+.login-page{min-height:100dvh;padding:24px;background:radial-gradient(ellipse at 50% 15%,#e4efff 0,#f5f8fe 55%,#fbfcff 100%);display:flex;align-items:center;justify-content:center}
+.login-card{width:min(390px,100%);padding:31px 32px 26px;border:1px solid #d7e3f4;border-radius:19px;box-shadow:0 20px 54px rgba(25,53,91,.08)}
+.login-identity{text-align:center;padding:0 0 11px;border-bottom:1px solid #eef2f8;margin-bottom:19px}
+.login-card .login-identity .mini-logo{display:block;width:66px;height:66px;object-fit:contain;margin:0 auto 9px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.08))}
+.login-identity h1{font-size:24px;line-height:1.3;color:#143a70;font-weight:700;letter-spacing:-.035em;margin:0 0 4px}
+.login-card .login-identity p{font-size:10.5px;color:#6d7f98;margin:0 0 3px;line-height:1.5}
+.login-eyebrow{text-align:center;color:#0e65a9!important;letter-spacing:.1em!important;font-size:9px!important}
+.login-card h2{font-size:17px;line-height:1.3;margin:12px 0 2px;text-align:center}
+.login-card .login-intro{text-align:center;color:#697a93;font-size:11px;margin:0 0 16px}
+.login-card .field label{font-size:10px}.login-card .field input{height:43px;background:#f9fbfe;border:1px solid #d6e3f4;border-radius:10px;padding:0 12px}
+.login-card button.full{height:42px;border-radius:10px;font-weight:600;font-size:11.5px}
+.login-card .primary{background:#123d78}.login-card .primary:hover{background:#0d3267}
+.login-card .connection-tools{margin-top:15px;gap:7px}.login-card .error{border-radius:9px;font-size:10px;text-align:left}
+@media(max-width:760px){.login-page{padding:16px}.login-card{width:min(390px,100%);padding:24px 21px}.sidebar{box-shadow:6px 0 24px rgba(17,42,75,.12)}.page-head{padding:15px 14px 12px}.page-view{padding:0 14px 20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
