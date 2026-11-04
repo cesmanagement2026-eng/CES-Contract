@@ -3,11 +3,31 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#13345e"><title>CES Contract</title>
-<link rel="icon" href="assets/nhealth-logo.png"><link rel="stylesheet" href="styles.css">
-<script defer src="config.js"></script><script defer src="api.js"></script><script defer src="app.js"></script>
+<link rel="icon" href="assets/nhealth-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script defer src="config.js"></script><script defer src="api.js"></script><script defer src="app.js"></script>
 </head>
 <body>
 <div id="toast-area" aria-live="polite"></div>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true"><defs>
+<symbol id="ic-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></symbol>
+<symbol id="ic-building" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h6M10 21v-4h4v4"/></symbol>
+<symbol id="ic-equipment" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h5M8 21h8m-4-3v3"/></symbol>
+<symbol id="ic-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0v5l-2 4h16l-2-4V8zM10 21h4"/></symbol>
+<symbol id="ic-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3.5"/><path d="M2 21v-3a7 7 0 0 1 14 0v3M17 4c3 0 4 2 4 4s-1 4-4 4m0 3c3 0 5 2 5 6"/></symbol>
+<symbol id="ic-activity" viewBox="0 0 24 24"><path d="M3 3v18h18M6 15l4-5 3 3 5-7"/></symbol>
+<symbol id="ic-settings" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6l1.4 1.4m10 10 1.4 1.4m0-12.8L17 7m-10 10-1.4 1.4"/><circle cx="12" cy="12" r="5"/></symbol>
+<symbol id="ic-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+<symbol id="ic-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="ic-sync" viewBox="0 0 24 24"><path d="M20 5v6h-6M4 19v-6h6"/><path d="M19 11a7 7 0 0 0-12-5L4 9m1 4a7 7 0 0 0 12 5l3-3"/></symbol>
+<symbol id="ic-file" viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6zM15 2v5h4M9 12h6m-6 4h6"/></symbol>
+<symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 21h16"/></symbol>
+<symbol id="ic-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 2 7M4 4v6h6"/></symbol>
+<symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3.5-8 8-8s8 3 8 8"/></symbol>
+<symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 6 5 9 9 10 4-1 9-4 9-10V6zM9 12l2 2 4-4"/></symbol>
+</defs></svg>
 <section id="login" class="login-screen">
   <div class="login-box">
     <img class="login-logo" src="assets/nhealth-logo.png" alt="N Health">
@@ -26,23 +46,33 @@
   <aside class="sidebar" id="sidebar">
     <div class="brand"><img src="assets/nhealth-logo.png" alt="N Health"><div><strong>CES Contract</strong><small>Price Intelligence</small></div></div>
     <nav class="nav-list" aria-label="Main navigation">
-      <p class="nav-label">ANALYTICS</p>
-      <button data-page="dashboard" class="nav-item selected"><span class="nav-symbol">▣</span>Dashboard</button>
-      <button data-page="compare" class="nav-item"><span class="nav-symbol">▥</span>Price Comparison</button>
-      <p class="nav-label">CONTRACT MANAGEMENT</p>
-      <button data-page="sites" class="nav-item"><span class="nav-symbol">▤</span>Site Contract Detail</button>
-      <button data-page="equipment" class="nav-item"><span class="nav-symbol">▦</span>Equipment</button>
-      <button data-page="notifications" class="nav-item"><span class="nav-symbol">◷</span>Notifications <span id="nav-notify" class="count hidden">0</span></button>
-      <p class="nav-label">ADMINISTRATION</p>
-      <button data-page="users" class="nav-item"><span class="nav-symbol">♙</span>User Management</button>
-      <button data-page="settings" class="nav-item"><span class="nav-symbol">⚙</span>Settings</button>
+      <p class="nav-label" data-i18n="analytics">ANALYTICS</p>
+      <button data-page="dashboard" class="nav-item selected"><svg><use href="#ic-dashboard"/></svg><span class="nav-text" data-i18n="dashboard">Dashboard</span></button>
+      <p class="nav-label" data-i18n="contracts">CONTRACT MANAGEMENT</p>
+      <button data-page="sites" class="nav-item"><svg><use href="#ic-building"/></svg><span class="nav-text" data-i18n="sites">Site Contract Detail</span></button>
+      <button data-page="equipment" class="nav-item"><svg><use href="#ic-equipment"/></svg><span class="nav-text" data-i18n="equipment">Equipment</span></button>
+      <button data-page="notifications" class="nav-item"><svg><use href="#ic-bell"/></svg><span class="nav-text" data-i18n="notifications">Notifications</span><span id="nav-notify" class="count hidden">0</span></button>
+      <p class="nav-label" data-i18n="administration">ADMINISTRATION</p>
+      <button data-page="users" class="nav-item admin-nav"><svg><use href="#ic-users"/></svg><span class="nav-text" data-i18n="users">User Management</span></button>
+      <button data-page="logs" class="nav-item admin-nav"><svg><use href="#ic-activity"/></svg><span class="nav-text" data-i18n="logs">Log Summary</span></button>
+      <button data-page="notifyConfig" class="nav-item admin-nav"><svg><use href="#ic-mail"/></svg><span class="nav-text" data-i18n="notifyConfig">Notification Config</span></button>
+      <button data-page="settings" class="nav-item"><svg><use href="#ic-settings"/></svg><span class="nav-text" data-i18n="settings">Settings</span></button>
     </nav>
     <div class="sidebar-footer"><span id="connection-dot" class="connection-dot"></span><span id="connection-label">Not synced</span></div>
   </aside>
   <div class="workspace">
-    <header class="topbar"><div class="topbar-left"><button id="menu-toggle" class="icon-button" aria-label="Toggle menu">☰</button><div class="topbar-title"><strong id="top-page">Dashboard</strong><small id="top-description">Equipment-level contract analysis</small></div></div><div class="topbar-right"><span id="live-pill" class="pill">● Connecting</span><button id="top-refresh" class="icon-button" title="Refresh latest data">↻</button><button id="top-notifications" class="icon-button" title="Notifications">♧<sup id="top-notify-count" class="hidden"></sup></button><div class="profile"><span id="profile-name">—</span><button id="sign-out" class="text-button">Sign out</button></div></div></header>
+    <header class="topbar">
+      <div class="topbar-left"><button id="menu-toggle" class="icon-button" aria-label="Toggle sidebar" aria-expanded="true"><svg><use href="#ic-menu"/></svg></button><div class="topbar-title"><strong id="top-page">Dashboard</strong><small id="top-description">Equipment-level contract analysis</small></div></div>
+      <div class="topbar-right">
+        <div class="lang-switch" role="group" aria-label="Language"><button id="lang-th" type="button">TH</button><button id="lang-en" type="button" class="active">EN</button></div>
+        <span id="live-pill" class="pill">● Connecting</span><span id="user-status" class="pill ok">● Active</span>
+        <button id="top-refresh" class="icon-button" title="Refresh latest data" aria-label="Refresh"><svg><use href="#ic-sync"/></svg></button>
+        <button id="profile-button" class="profile-card" title="My profile"><span id="profile-avatar" class="profile-avatar">U</span><span class="profile-copy"><strong id="profile-name">—</strong><small id="profile-position">—</small></span></button>
+        <button id="sign-out" class="text-button signout-btn">Sign out</button>
+      </div>
+    </header>
     <main id="main">
-      <section class="page-header"><div><p class="overline">CES CONTRACT / MANAGEMENT</p><h1 id="page-title">Dashboard</h1><p id="page-description" class="page-description">Contract pricing and renewal oversight</p></div><div class="page-operations"><a id="drive-link" class="btn ghost" target="_blank" rel="noopener noreferrer">Contract files ↗</a><button class="btn secondary" id="export-data">Export CSV</button><button class="btn secondary" id="print-page">Print / PDF</button></div></section>
+      <section class="page-header"><div class="page-heading"><span class="page-heading-icon"><svg><use id="page-icon" href="#ic-dashboard"/></svg></span><div><p class="overline">CES CONTRACT / MANAGEMENT</p><h1 id="page-title">Dashboard</h1><p id="page-description" class="page-description">Contract pricing and renewal oversight</p></div></div><div class="page-operations" id="module-actions"><a id="raw-data" class="btn ghost" target="_blank" rel="noopener noreferrer"><svg><use href="#ic-file"/></svg>Raw data</a><button class="btn secondary" id="resync-module"><svg><use href="#ic-sync"/></svg>Resync</button><button class="btn secondary" id="export-excel"><svg><use href="#ic-download"/></svg>Excel</button><button class="btn secondary" id="print-page"><svg><use href="#ic-file"/></svg>PDF</button><button class="btn ghost" id="reset-module"><svg><use href="#ic-reset"/></svg>Reset</button></div></section>
       <section id="global-filters" class="panel filters-panel">
         <div class="filter-header"><strong>Filters</strong><div class="filter-actions"><span id="filter-result" class="small-muted"></span><button class="text-button" id="reset-filters">Reset all</button></div></div>
         <div class="filters-grid">
@@ -54,11 +84,13 @@
         <details class="filter-more"><summary>Advanced filters</summary><div class="filters-grid advanced-grid"><label>Status<select id="filter-status"></select></label><label>Contract type<select id="filter-contract"></select></label><label>Renewal status<select id="filter-renewal"></select></label></div></details>
       </section>
       <section id="view-dashboard" class="view"></section>
-      <section id="view-compare" class="view hidden"></section>
+      
       <section id="view-sites" class="view hidden"></section>
       <section id="view-equipment" class="view hidden"></section>
       <section id="view-notifications" class="view hidden"></section>
       <section id="view-users" class="view hidden"></section>
+      <section id="view-logs" class="view hidden"></section>
+      <section id="view-notifyConfig" class="view hidden"></section>
       <section id="view-settings" class="view hidden"></section>
     </main>
   </div>
